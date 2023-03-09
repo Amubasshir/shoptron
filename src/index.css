@@ -7,3 +7,22 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  width: 0%;
+  height: 0.01rem;
+  background-color: #f9fafb;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  transition: 0.3s;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
