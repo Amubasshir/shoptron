@@ -11,7 +11,10 @@ const Slide = ({ image }) => {
         <p className="slider-text text-xl w-3/5 font-serif text-orange-50">
           {image.body}
         </p>
-        <Link className="slider-link text-xl uppercase font-medium  py-3 px-6 rounded-sm bg-orange-500 text-gray-900">
+        <Link
+          to={`/products/${image.category}`}
+          className="slider-link text-xl uppercase font-medium  py-3 px-6 rounded-sm bg-orange-500 text-gray-900"
+        >
           Shop Now
         </Link>
       </div>
