@@ -7,8 +7,12 @@ const Navbar = () => {
     <div className="navbar-bg bg-[#6d6d6d] text-indigo-50 h-16 flex justify-center items-center border-none">
       <div className="navbar container mx-auto flex justify-between items-center  ">
         <div className="left">
-          <span className="text-2xl font-semibold">Shop</span>
-          <span className="text-orange-500 text-2xl font-semibold ">Tron</span>
+          <span className="text-2xl text-gray-50 font-semibold font-serif">
+            Shop
+          </span>
+          <span className="text-orange-500 text-2xl font-semibold font-serif ">
+            Tron
+          </span>
         </div>
         <div className="right flex items-center gap-5">
           <Link to="/" className=" nav-link ">

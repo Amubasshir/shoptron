@@ -1,18 +1,29 @@
 import React from 'react';
+import { currencyFormatter } from '../utils/currencyFormatter';
 
 const Cart = ({ product }) => {
   return (
-    <div className="product">
-      <div className="img">
+    <div className="product flex flex-col gap-2 bg-white shadow-md hover:shadow-xl hover:border-2 border-white rounded-lg overflow-hidden duration-300">
+      <div className="img ">
         <img src={product.image} alt={product.name} />
       </div>
 
-      <span className="category-tag">{product.category}</span>
-      <h3 className="title">{product.name}</h3>
-      <p className="details">{product.description}</p>
-      <div>
-        <span className="price">${product.price}</span>
-        <button>Add to cart</button>
+      <div className="text flex flex-col gap-2 px-5 pb-5">
+        <span className="category-tag uppercase text-xs font-semibold tracking-widest text-orange-500">
+          {product.category}
+        </span>
+        <h3 className="title text-xl font-medium h-[5.25rem]">
+          {product.name}
+        </h3>
+        <p className="details text-gray-800 h-[6rem]">{product.description}</p>
+        <div className="flex justify-between items-center">
+          <span className="price text-xl font-medium text-orange-500">
+            {currencyFormatter(product.price)}
+          </span>
+          <button className="uppercase bg-black hover:bg-orange-500 text-gray-50 font-medium py-3 px-8 rounded-md duration-300">
+            Add to cart
+          </button>
+        </div>
       </div>
     </div>
   );

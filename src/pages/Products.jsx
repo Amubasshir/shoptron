@@ -84,9 +84,9 @@ const data = [
   },
   {
     id: 9,
-    name: 'Apple Watch Series 4 (GPS, 40MM) - Silver Aluminum Case',
+    name: 'Apple Watch Series 4 (GPS, 40MM) - Aluminum Case',
     description:
-      'This product will have a battery that exceeds 80% capacity relative to new',
+      'This product will have a battery that exceeds 80% capacity relative to old version',
     price: 147,
     image:
       'https://res.cloudinary.com/dy28teazb/image/upload/v1668172650/React%20Shopping/Products/FU642_zstpwl.jpg',
@@ -96,7 +96,7 @@ const data = [
     id: 10,
     name: 'Military Smart Watch for Men Outdoor Waterproof Tactical Smartwatch',
     description:
-      'EIGIIS military smart watch has a 10 military grade certifications and can be used under the harsh environmental conditions',
+      'EIGIIS military smart watch has a 10 military grade certifications and can be used under the harsh conditions',
     price: 49.99,
     image:
       'https://res.cloudinary.com/dy28teazb/image/upload/v1668172650/React%20Shopping/Products/Military-Smart-Watch-Men-Outdoor-Waterproof-Tactical-Smartwatch-Bluetooth-Dail-Calls-Speaker-Fitness-Tracker-for-iPhone.jpg_640x640_jy4v6s.jpg',
@@ -107,10 +107,10 @@ const data = [
 const Products = () => {
   return (
     <div className="products-section container mx-auto py-10">
-      <h2 className="section-title uppercase text-3xl font-serif text-center mb-10">
+      <h2 className="section-title uppercase text-4xl font-serif text-center mb-10">
         Browse all products
       </h2>
-      <div className="products-wrapper grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">
+      <div className="products-wrapper grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 ">
         {data.map((product) => (
           <ProductCart key={product.id} product={product} />
         ))}
