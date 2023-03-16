@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { currencyFormatter } from '../utils/currencyFormatter';
 
 const data = [
   {
@@ -34,6 +35,14 @@ const data = [
 ];
 
 const Cart = () => {
+  const [count, setCount] = useState(1);
+
+  const handleDecrease = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+  const handleIncrease = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
   return (
     <div className="cart-section container mx-auto py-5">
       <div className="cart-headline">
@@ -46,7 +55,7 @@ const Cart = () => {
           <div className="col-product col-span-2">product</div>
           <div className="col-unit-price">unit price</div>
           <div className="col-quantity">quantity</div>
-          <div className="col-total-price">total price</div>
+          <div className="col-total-price ml-auto">total price</div>
         </div>
         <div className="products flex flex-col">
           {data.map((product) => (
@@ -64,11 +73,51 @@ const Cart = () => {
                   </button>
                 </div>
               </div>
+              <div className="unit-price pl-5">
+                {currencyFormatter(product.price)}
+              </div>
+              <div className="counter flex ">
+                <button
+                  onClick={() => handleDecrease()}
+                  className="h-8 w-8 border border-gray-300 bg-gray-100 active:bg-gray-700 active:text-white"
+                >
+                  -
+                </button>
+                <span className="h-8 w-8 border border-gray-300 bg-gray-100 flex justify-center items-center">
+                  {count}
+                </span>
+                <button
+                  onClick={() => handleIncrease()}
+                  className="h-8 w-8 border border-gray-300 bg-gray-100 active:bg-gray-700 active:text-white"
+                >
+                  +
+                </button>
+              </div>
+              <div className="total-price ml-auto">
+                {currencyFormatter(product.price)}
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="cart-lower"></div>
+      <div className="cart-lower flex justify-between items-start py-10">
+        <button className="clear-btn border border-orange-400 hover:border-orange-600 bg-gray-100 hover:bg-gray-200 font-medium text-lg duration-300 py-3 px-8 rounded-sm">
+          CLEAR CART
+        </button>
+        <div className="flex flex-col items-start gap-2">
+          <div className="top flex justify-between w-full text-2xl font-medium">
+            <span className="text-black">Subtotal</span>
+            <span className="text-red-500">$199</span>
+          </div>
+          <p className="text-gray-400">Taxes and shipping cost are included</p>
+          <button className="checkout bg-black py-3 px-8 w-full text-white font-medium text-lg rounded-sm tracking-widest hover:text-red-500">
+            CHECKOUT
+          </button>
+          <button className="continue font-medium text-lg  ">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
