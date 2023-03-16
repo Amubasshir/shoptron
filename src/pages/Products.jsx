@@ -76,7 +76,7 @@ const data = [
     id: 8,
     name: 'Bluetooth Headphones Wireless Earbuds 36Hrs Playtime Wireless Charging',
     description:
-      'Wireless earbuds with dual power display show the remaining battery of the case by the number on the screen',
+      'Wireless earbuds with dual power display show the remaining battery of the case on the screen',
     price: 38.99,
     image:
       'https://res.cloudinary.com/dy28teazb/image/upload/v1668172650/React%20Shopping/Products/9b890489-49e2-47aa-8b85-b71892cc16ae.3142c0cfab48b4acd4f628c8f8f39190_volxjj.jpg',
@@ -86,7 +86,7 @@ const data = [
     id: 9,
     name: 'Apple Watch Series 4 (GPS, 40MM) - Aluminum Case',
     description:
-      'This product will have a battery that exceeds 80% capacity relative to old version',
+      'This product will have a battery that exceeds 80% capacity relative to old version.The new model also has gps to locate easily',
     price: 147,
     image:
       'https://res.cloudinary.com/dy28teazb/image/upload/v1668172650/React%20Shopping/Products/FU642_zstpwl.jpg',

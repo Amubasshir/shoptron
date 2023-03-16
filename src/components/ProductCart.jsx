@@ -3,7 +3,7 @@ import { currencyFormatter } from '../utils/currencyFormatter';
 
 const Cart = ({ product }) => {
   return (
-    <div className="product flex flex-col gap-2 bg-white shadow-md hover:shadow-xl hover:border-2 border-white rounded-lg overflow-hidden duration-300">
+    <div className="product flex flex-col gap-2 bg-white shadow-md hover:shadow-xl  border-white rounded-lg overflow-hidden duration-300">
       <div className="img ">
         <img src={product.image} alt={product.name} />
       </div>
@@ -20,7 +20,7 @@ const Cart = ({ product }) => {
           <span className="price text-xl font-medium text-orange-500">
             {currencyFormatter(product.price)}
           </span>
-          <button className="uppercase bg-black hover:bg-orange-500 text-gray-50 font-medium py-3 px-8 rounded-md duration-300">
+          <button className="uppercase bg-black hover:bg-orange-500 text-gray-50 font-medium py-3 px-5 rounded-md duration-300">
             Add to cart
           </button>
         </div>
