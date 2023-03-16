@@ -1,39 +1,6 @@
 import React, { useState } from 'react';
 import { currencyFormatter } from '../utils/currencyFormatter';
 
-const data = [
-  {
-    id: 1,
-    name: 'Blink Mini – Compact indoor plug-in smart security camera',
-    description:
-      'Monitor the inside of your home day and night with our 1080P HD indoor plug-in smart security camera',
-    price: 64.99,
-    image:
-      'https://res.cloudinary.com/dy28teazb/image/upload/v1668172648/React%20Shopping/Products/81-585-013-01_a04wkd.jpg',
-    category: 'Camera',
-  },
-  {
-    id: 2,
-    name: 'Vlogging Camera, 4K Digital Camera for YouTube with WiFi',
-    description:
-      "It's super suitable for the 'happy snapper' who just hope to point and shoot to take good quality images",
-    price: 109.99,
-    image:
-      'https://res.cloudinary.com/dy28teazb/image/upload/v1668172649/React%20Shopping/Products/81pgsjFGpmL_qundpd.jpg',
-    category: 'Camera',
-  },
-  {
-    id: 3,
-    name: 'SAMSUNG 55-Inch Class Crystal 4K UHD AU8000 Series HDR',
-    description:
-      'Witness millions of shades of color through powerful Dynamic Crystal technology',
-    price: 497.99,
-    image:
-      'https://res.cloudinary.com/dy28teazb/image/upload/v1668172649/React%20Shopping/Products/cl-uhd-tu7090-un50tu7090gxzs-rperspective-285965740_duusj5.png',
-    category: 'TV',
-  },
-];
-
 const Cart = () => {
   const [count, setCount] = useState(1);
 
