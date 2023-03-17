@@ -27,7 +27,7 @@ button {
   content: '';
   width: 0%;
   height: 0.01rem;
-  background-color: #f9fafb;
+  background-color: #c2410c;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
