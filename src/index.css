@@ -41,14 +41,14 @@ button {
 /* SLIDER */
 
 .slider {
-  height: 100vh;
+  height: 80vh;
   width: 400vw;
   display: flex;
   transition: 1s ease;
 }
 .slide {
   width: 100vw;
-  height: 100%;
+  height: 90%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

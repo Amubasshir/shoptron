@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const { cartItems } = useSelector((state) => state.cart);
   return (
-    <div className="navbar-bg bg-gray-700 text-indigo-50 h-16 flex justify-center items-center border-none">
+    <div className="navbar bg-[#0C2237] text-indigo-50 h-16 flex justify-center items-center border-none">
       <div className="navbar container mx-auto flex justify-between items-center  ">
         <div className="left">
           <span className="text-2xl text-gray-50 font-semibold font-serif">
@@ -15,6 +15,13 @@ const Navbar = () => {
           <span className="text-orange-500 text-2xl font-semibold font-serif ">
             Tron
           </span>
+        </div>
+        <div className="middle flex flex-2 items-center bg-[#1E293B] h-10 rounded-md">
+          <input
+            className="border-none outline-none  w-96 h-full bg-transparent pl-4"
+            type="text"
+            placeholder="search"
+          />
         </div>
         <div className="right flex items-center gap-5">
           <Link to="/" className=" nav-link ">

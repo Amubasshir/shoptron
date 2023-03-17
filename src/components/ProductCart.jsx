@@ -21,10 +21,10 @@ const Cart = ({ product }) => {
         <span className="category-tag uppercase text-xs font-semibold tracking-widest text-orange-500">
           {product.category}
         </span>
-        <h3 className="title text-xl font-medium h-[5.25rem]">
+        <h3 className="title mb-10 text-xl font-medium h-[5.25rem]">
           {product.name}
         </h3>
-        <p className="details text-gray-800 h-[6rem]">{product.description}</p>
+        {/* <p className="details text-gray-800 h-[6rem]">{product.description}</p> */}
         <div className="flex justify-between items-center">
           <span className="price text-xl font-medium text-orange-500">
             {currencyFormatter(product.price)}

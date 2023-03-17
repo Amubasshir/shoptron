@@ -60,7 +60,7 @@ const cartSlice = createSlice({
     },
     clearCart(state, action) {
       state.cartItems = [];
-      toast.error('Cart cleared!', {
+      toast.error('Cart clear!', {
         position: 'bottom-left',
         autoClose: 1000,
         hideProgressBar: false,
