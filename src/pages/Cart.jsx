@@ -1,15 +1,19 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   addToCart,
   clearCart,
   decreaseCart,
+  getSubTotal,
   removeFromCart,
 } from '../features/products/cartSlice';
 import { currencyFormatter } from '../utils/currencyFormatter';
 
 const Cart = () => {
-  const { cartItems: data } = useSelector((state) => state.cart);
+  const { cartItems: data, cartTotalAmount: subTotal } = useSelector(
+    (state) => state.cart
+  );
 
   const dispatch = useDispatch();
 
@@ -22,6 +26,10 @@ const Cart = () => {
   const handleIncrease = (product) => {
     dispatch(addToCart(product));
   };
+
+  useEffect(() => {
+    dispatch(getSubTotal());
+  }, [data, dispatch]);
 
   return (
     <div className="cart-section container mx-auto py-5">
@@ -49,7 +57,10 @@ const Cart = () => {
             </div>
             <div className="products flex flex-col">
               {data?.map((product) => (
-                <div className="product grid grid-cols-5 gap-6 mt-4 border-b pb-5 ">
+                <div
+                  key={product.id}
+                  className="product grid grid-cols-5 gap-6 mt-4 border-b pb-5 "
+                >
                   <div className="left flex col-span-2 gap-5">
                     <img
                       src={product.image}
@@ -87,7 +98,7 @@ const Cart = () => {
                     </button>
                   </div>
                   <div className="total-price ml-auto">
-                    {currencyFormatter(product.price)}
+                    {currencyFormatter(product.price * product.cartQuantity)}
                   </div>
                 </div>
               ))}
@@ -103,7 +114,9 @@ const Cart = () => {
             <div className="flex flex-col items-start gap-2">
               <div className="top flex justify-between w-full text-2xl font-medium">
                 <span className="text-black">Subtotal</span>
-                <span className="text-red-500">$199</span>
+                <span className="text-red-500">
+                  {currencyFormatter(subTotal)}
+                </span>
               </div>
               <p className="text-gray-400">
                 Taxes and shipping cost are included
