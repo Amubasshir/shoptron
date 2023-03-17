@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { clearCart, removeFromCart } from '../features/products/cartSlice';
+import {
+  addToCart,
+  clearCart,
+  decreaseCart,
+  removeFromCart,
+} from '../features/products/cartSlice';
 import { currencyFormatter } from '../utils/currencyFormatter';
 
 const Cart = () => {
@@ -10,6 +15,12 @@ const Cart = () => {
 
   const handleRemove = (product) => {
     dispatch(removeFromCart(product));
+  };
+  const handleDecrease = (product) => {
+    dispatch(decreaseCart(product));
+  };
+  const handleIncrease = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -59,13 +70,19 @@ const Cart = () => {
                     {currencyFormatter(product.price)}
                   </div>
                   <div className="counter flex ">
-                    <button className="h-8 w-8 border border-gray-300 bg-gray-100 active:bg-gray-700 active:text-white">
+                    <button
+                      onClick={() => handleDecrease(product)}
+                      className="h-8 w-8 border border-gray-300 bg-gray-100 active:bg-gray-700 active:text-white"
+                    >
                       -
                     </button>
                     <span className="h-8 w-8 border border-gray-300 bg-gray-100 flex justify-center items-center">
-                      7
+                      {product.cartQuantity}
                     </span>
-                    <button className="h-8 w-8 border border-gray-300 bg-gray-100 active:bg-gray-700 active:text-white">
+                    <button
+                      onClick={() => handleIncrease(product)}
+                      className="h-8 w-8 border border-gray-300 bg-gray-100 active:bg-gray-700 active:text-white"
+                    >
                       +
                     </button>
                   </div>
