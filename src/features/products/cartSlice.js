@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const initialState = {
   cartItems: localStorage.getItem('cartItems')
@@ -13,28 +14,40 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      // check the item is already in the cart or not
-      const existedItemIndex = state.cartItems.findIndex(
+      const existingItemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      // if exist
-      if (existedItemIndex >= 0) {
-        state.cartItems[existedItemIndex].cartTotalQuantity += 1;
+
+      if (existingItemIndex >= 0) {
+        state.cartItems[existingItemIndex].cartQuantity += 1;
+        toast.info('Quantity increased', {
+          position: 'bottom-left',
+          theme: 'dark',
+        });
       } else {
-        // add to cart
-        const assembledItem = { ...action.payload, cartQuantity: 1 };
-        state.cartItems.push(assembledItem);
-        // add to local storage
-        localStorage.setItem('cartItems', JSON.stringify('state.cartItems'));
+        const productAssemble = { ...action.payload, cartQuantity: 1 };
+        state.cartItems.push(productAssemble);
+        toast.success('Item added', {
+          position: 'bottom-left',
+          theme: 'dark',
+        });
       }
+
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
+
     removeFromCart(state, action) {
-      const updatedCartItem = state.cartItems.filter(
-        (item) => item.id !== action.payload.id
+      const updatedCartItems = state.cartItems.filter(
+        (cartItem) => cartItem.id !== action.payload.id
       );
-      state.cartItems = updatedCartItem;
-      // update local storage
-      localStorage.setItem('cartItems', JSON.stringify('state.cartItems'));
+
+      state.cartItems = updatedCartItems;
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+
+      toast.error('Item removed', {
+        position: 'bottom-left',
+        theme: 'dark',
+      });
     },
   },
 });

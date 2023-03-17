@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../features/products/cartSlice';
 import { currencyFormatter } from '../utils/currencyFormatter';
-
 const Cart = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
