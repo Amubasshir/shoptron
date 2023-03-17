@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Cart from './pages/Cart';
@@ -11,6 +13,7 @@ const App = () => {
     <>
       <div className="app min-h-screen bg-gray-50 text-gray-800 ">
         <Navbar />
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="products" element={<Products />} />

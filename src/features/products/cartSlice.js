@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const initialState = {
   cartItems: localStorage.getItem('cartItems')
@@ -22,6 +23,16 @@ const cartSlice = createSlice({
       } else {
         const productAssemble = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(productAssemble);
+        toast.success('Item added to cart!', {
+          position: 'bottom-left',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
       }
 
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
@@ -33,11 +44,33 @@ const cartSlice = createSlice({
       );
 
       state.cartItems = updatedCartItems;
+
+      toast.error('Item removed from cart!', {
+        position: 'bottom-left',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
       // update the local storage
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     clearCart(state, action) {
       state.cartItems = [];
+      toast.error('Cart cleared!', {
+        position: 'bottom-left',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+
       // update the local storage
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
